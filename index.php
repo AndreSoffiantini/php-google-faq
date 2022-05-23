@@ -1,11 +1,28 @@
 <?php
 
     $nav_items = [
-        "Introduzione",
-        "Norme sulla privacy",
-        "Termini di servizio",
-        "Tecnologie",
-        "Domande frequenti"
+        
+        [
+            'name' => "Introduzione",
+            'is_active' => false
+        ],
+        [
+            'name' => "Norme sulla privacy",
+            'is_active' => false
+        ],
+        [
+            'name' => "Termini di servizio",
+            'is_active' => false
+        ],
+        [
+            'name' => "Tecnologie",
+            'is_active' => false
+        ],
+        [
+            'name' => "Domande frequenti",
+            'is_active' => true
+        ]         
+        
     ];
 
     $faqs = [
@@ -77,14 +94,14 @@
     <header class="px-3 pt-2 border-bottom border-secondary" id="site_header">
         
         <div class="logo_title d-flex align-items-center mb-3">
-            <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="">
+            <img style="height: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="">
             <h3 class="mx-3">Privacy & Termini</h3>
         </div>
 
         <nav>
-            <ul class="list-group list-group-horizontal">
+            <ul class="list-group list-group-horizontal list-unstyled">
                 <?php foreach($nav_items as $nav_item) : ?>
-                    <li class="list-group-item border-white ps-0"> <a href="" class="text-decoration-none text-black"> <?= $nav_item ?> </a> </li>
+                    <li class="pb-2 me-5 <?= $nav_item['is_active'] ? 'border-bottom border-primary' : ''; ?>"> <a href="" class="text-decoration-none <?= $nav_item['is_active'] ? 'text-primary' : 'text-black'; ?>"> <?= $nav_item['name'] ?> </a> </li>
                 <?php endforeach ?> 
             </ul>
         </nav>
